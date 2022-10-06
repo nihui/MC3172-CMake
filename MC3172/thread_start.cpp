@@ -899,12 +899,10 @@ void (*thread_initial_pointer[64]) (void)={
                                                &thread63_initial
 };
 
-
-void thread_start(void)
+extern "C" void thread_start(void)
 {
     (*thread_initial_pointer[THREAD_ID])();
 }
-
 
 #endif
 
