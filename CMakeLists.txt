@@ -7,20 +7,20 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
 cmake_minimum_required(VERSION 3.20)
 
 # 工具链设置
-set(TOOLPATH  D:/0wch/toolchain/RISCVEmbeddedGCC/bin/riscv-none-embed-)
-set(CMAKE_C_COMPILER ${TOOLPATH}gcc.exe)
-set(CMAKE_CXX_COMPILER ${TOOLPATH}g++.exe)
-set(CMAKE_ASM_COMPILER ${TOOLPATH}gcc.exe)
-set(CMAKE_AR ${TOOLPATH}ar.exe)
-set(CMAKE_OBJCOPY ${TOOLPATH}objcopy.exe)
-set(CMAKE_OBJDUMP ${TOOLPATH}objdump.exe)
-set(SIZE ${TOOLPATH}size.exe)
-set(NM ${TOOLPATH}nm.exe)
+set(TOOLPATH  "/home/nihui/osd/MRS_Toolchain_Linux_x64_V1.50/RISC-V Embedded GCC/bin/riscv-none-embed-")
+set(CMAKE_C_COMPILER ${TOOLPATH}gcc)
+set(CMAKE_CXX_COMPILER ${TOOLPATH}g++)
+set(CMAKE_ASM_COMPILER ${TOOLPATH}gcc)
+set(CMAKE_AR ${TOOLPATH}ar)
+set(CMAKE_OBJCOPY ${TOOLPATH}objcopy)
+set(CMAKE_OBJDUMP ${TOOLPATH}objdump)
+set(SIZE ${TOOLPATH}size)
+set(NM ${TOOLPATH}nm)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 
 # 项目设置
-project(mc3172-cmake C)
+project(mc3172-cmake C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_STANDARD 99)
 
@@ -45,8 +45,8 @@ include_directories(
 
 # 源码文件
 file(GLOB_RECURSE SOURCES 
-                "MC3172/thread_start.c"
-                "USER_CODE/*.c")
+                "MC3172/thread_start.cpp"
+                "USER_CODE/*.cpp")
 
 # 链接参数
 add_link_options(-nostartfiles 
